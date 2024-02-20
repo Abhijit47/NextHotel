@@ -1,8 +1,10 @@
 import RoomPage from "@/components/RoomPage";
 
+const API_URL = process.env.API_URL;
+
 async function getAllRooms() {
   // try {
-  const res = await fetch("http://localhost:3000/api/all-rooms", {
+  const res = await fetch(`${API_URL}/api/all-rooms`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

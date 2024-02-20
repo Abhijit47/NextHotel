@@ -2,8 +2,10 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
+const API_URL = process.env.API_URL;
+
 async function getRooms() {
-  const res = await fetch("http://localhost:3000/api/rooms", {
+  const res = await fetch(`${API_URL}/api/rooms`, {
     cache: "default",
   });
 
