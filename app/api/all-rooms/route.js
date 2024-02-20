@@ -1,4 +1,4 @@
-import connectDB from "@/lib/connectDB";
+import { connectDB } from "@/lib/connectDB";
 import { sendResponse } from "@/lib/helpers";
 import Room from "@/models/Room";
 

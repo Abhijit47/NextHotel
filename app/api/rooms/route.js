@@ -1,5 +1,5 @@
+import { connectDB } from "@/lib/connectDB";
 import Room from "@/models/Room";
-import connectDB from "@/lib/connectDB";
 import { sendResponse } from "@/lib/helpers";
 
 // export const dynamic = "force-dynamic";

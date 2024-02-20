@@ -2,9 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import ReviewCard from "@/components/ReviewCard";
 
+const API_URL = process.env.API_URL;
+
 async function getRoom(roomId) {
   try {
-    const res = await fetch(`http://localhost:3000/api/rooms/${roomId}`, {
+    const res = await fetch(`${API_URL}/api/rooms/${roomId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
