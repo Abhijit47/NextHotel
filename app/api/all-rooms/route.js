@@ -2,7 +2,7 @@ import { connectDB } from "@/lib/connectDB";
 import { sendResponse } from "@/lib/helpers";
 import Room from "@/models/Room";
 
-// export const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic";
 
 export async function GET(request, response) {
   try {

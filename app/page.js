@@ -9,14 +9,16 @@ import Stats from "@/components/Stats";
 import Testimonial from "@/components/Testimonial";
 import Link from "next/link";
 
+const API_URL = process.env.API_URL;
+
 async function getRooms() {
   try {
-    const res = await fetch("http://localhost:3000/api/rooms", {
+    const res = await fetch(`${API_URL}/api/rooms`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      cache: "force-cache",
+      cache: "no-cache",
     });
 
     if (!res.ok) {
