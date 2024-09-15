@@ -1,8 +1,8 @@
 import { connectDB } from "@/lib/connectDB";
-import Room from "@/models/Room";
 import { sendResponse } from "@/lib/helpers";
+import Room from "@/models/Room";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {

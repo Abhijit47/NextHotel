@@ -1,8 +1,8 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { WebVitals } from "./_components/web-vitals";
+import { Inter } from "next/font/google";
+import "./globals.css";
+// import { WebVitals } from "./_components/web-vitals";
 import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         <ClerkProvider>
           <div className="absolute inset-0 bg-[url(/tailwind-grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
           <div className="relative m-auto max-w-7xl">
-            <WebVitals />
+            {/* <WebVitals /> */}
             <Navbar />
             {children}
             <Footer />
