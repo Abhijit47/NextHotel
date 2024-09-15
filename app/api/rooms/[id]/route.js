@@ -1,13 +1,13 @@
 import { connectDB } from "@/lib/connectDB";
-import Room from "@/models/Room";
 import { sendResponse } from "@/lib/helpers";
+import Room from "@/models/Room";
 
 export async function GET(request, response) {
   try {
     await connectDB();
 
     const { id } = await response.params;
-    if (!id || id.length < 8) {
+    if (!id) {
       return sendResponse("fail", 400, "Bad Request");
     }
 

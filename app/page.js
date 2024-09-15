@@ -1,4 +1,3 @@
-import { NotoRocket } from "@/assets/icons";
 import AboutUs from "@/components/AboutUs";
 import CTA from "@/components/CTA";
 import FeaturedProperties from "@/components/FeaturedProperties";
@@ -7,9 +6,10 @@ import PopularDeals from "@/components/PopularDeals";
 import PropertyTypes from "@/components/PropertyTypes";
 import Stats from "@/components/Stats";
 import Testimonial from "@/components/Testimonial";
-import Link from "next/link";
 
-const API_URL = process.env.API_URL;
+const isDev = process.env.NODE_ENV === "development" ? true : false;
+
+const API_URL = isDev ? process.env.LOCAL_API_URL : process.env.SERVER_API_URL;
 
 async function getRooms() {
   try {
@@ -34,9 +34,9 @@ export default async function Home() {
   const { data } = await getRooms();
 
   return (
-    <main className="home relative flex flex-col gap-y-16">
+    <main className="relative flex flex-col home gap-y-16">
       <Hero />
-      {/* <hr className="bg-red-500 p-px text-red-500" /> */}
+      {/* <hr className="p-px text-red-500 bg-red-500" /> */}
       <PropertyTypes />
       {/* <hr /> */}
       <PopularDeals rooms={data} />
@@ -52,7 +52,7 @@ export default async function Home() {
       <CTA />
 
       {/* <Link href={"#"} className="scroll-smooth">
-        <NotoRocket className="absolute bottom-0 right-5 size-16 -rotate-45" />
+        <NotoRocket className="absolute bottom-0 -rotate-45 right-5 size-16" />
       </Link> */}
     </main>
   );

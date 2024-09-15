@@ -1,6 +1,8 @@
 import RoomPage from "@/components/RoomPage";
 
-const API_URL = process.env.API_URL;
+const isDev = process.env.NODE_ENV === "development" ? true : false;
+
+const API_URL = isDev ? process.env.LOCAL_API_URL : process.env.SERVER_API_URL;
 
 async function getAllRooms() {
   // try {
