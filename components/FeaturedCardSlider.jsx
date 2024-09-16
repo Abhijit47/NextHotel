@@ -17,7 +17,7 @@ import "swiper/css";
 import "swiper/css/grid";
 
 // import required modules
-import { Grid, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 
 export default function FeaturedCardSlider({ rooms }) {
   const swiperRef = useRef(null);
@@ -39,17 +39,17 @@ export default function FeaturedCardSlider({ rooms }) {
       <div className="py-16">
         <Swiper
           ref={swiperRef}
-          spaceBetween={10}
-          slidesPerView={3.5}
-          grid={{
-            rows: 1,
-            fill: "row",
-          }}
+          spaceBetween={30}
+          slidesPerView={3.1}
+          // grid={{
+          //   rows: 1,
+          //   fill: "row",
+          // }}
           // onSlideChange={() => console.log("slide change")}
           // onSwiper={(swiper) => console.log(swiper)}
           // loop={true}
           grabCursor={true}
-          // lazy={true}
+          lazy={true}
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
@@ -88,26 +88,25 @@ export default function FeaturedCardSlider({ rooms }) {
               // spaceBetween: 30,
             },
             1200: {
-              slidesPerGroup: 3.2,
+              slidesPerGroup: 3,
             },
           }}
-          modules={[Grid, Autoplay]}
+          modules={[Autoplay]}
         >
           {rooms?.map((room) => (
-            <SwiperSlide key={room?._id}>
-              <div className="grid min-h-96 w-full gap-y-4 bg-white p-6">
-                <div>
+            <SwiperSlide key={room?._id} className={"bg-red-500"}>
+              <div className="grid w-full h-full bg-white gap-y-4">
+                <div className={"relative aspect-video"}>
                   <Image
                     src={room?.images?.picture_url}
-                    width={400}
-                    height={400}
-                    priority={false}
+                    width={500}
+                    height={500}
                     alt={room?.name}
-                    className="h-48 w-full rounded-md object-cover"
+                    className="object-cover w-full h-full"
                   />
                 </div>
 
-                <div className="grid gap-y-1">
+                <div className="grid p-4 gap-y-1">
                   <div className="flex items-center justify-between">
                     <h4 className="text-lg font-semibold">
                       {room?.name?.length >= 20
@@ -119,8 +118,8 @@ export default function FeaturedCardSlider({ rooms }) {
                     </span>
                   </div>
                   <div className="flex items-center gap-x-2">
-                    <GisLocationPoi className="h-5 w-5 text-slate-300" />
-                    <h5 className="line-clamp-1 text-sm">
+                    <GisLocationPoi className="w-5 h-5 text-slate-300" />
+                    <h5 className="text-sm line-clamp-1">
                       {room?.address?.street}
                     </h5>
                     <Image
@@ -170,11 +169,11 @@ export default function FeaturedCardSlider({ rooms }) {
 
       <div className="flex items-center justify-center">
         <MdiArrowLeftThin
-          className="h-8 w-8 cursor-pointer text-blue-800"
+          className="w-8 h-8 text-blue-800 cursor-pointer"
           onClick={goPrev}
         />
         <MdiArrowRightThin
-          className="h-8 w-8 cursor-pointer text-blue-800"
+          className="w-8 h-8 text-blue-800 cursor-pointer"
           onClick={goNext}
         />
       </div>

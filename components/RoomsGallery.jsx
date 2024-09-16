@@ -1,7 +1,7 @@
 "useClient";
 
 import { classNames } from "@/lib/helpers";
-import Image from "next/image";
+import RoomCover from "./RoomCover";
 
 export default function RoomsGallery({ rooms, currentIndex, onHandleIndex }) {
   return (
@@ -24,17 +24,24 @@ export default function RoomsGallery({ rooms, currentIndex, onHandleIndex }) {
                 "group relative block aspect-square h-full w-full overflow-hidden rounded-lg bg-gray-100",
               )}
             >
-              <Image
+              <RoomCover
+                roomCover={room?.images?.picture_url}
+                className={classNames(
+                  idx !== currentIndex ? "" : "group-hover:opacity-75",
+                  "pointer-events-none h-full w-full object-cover",
+                )}
+              />
+              {/* <Image
                 src={room?.images?.picture_url}
                 alt={room?.name}
                 className={classNames(
                   idx !== currentIndex ? "" : "group-hover:opacity-75",
-                  "pointer-events-none object-cover w-full h-full",
+                  "pointer-events-none h-full w-full object-cover",
                 )}
                 width={500}
                 height={500}
                 priority={false}
-              />
+              /> */}
               <button
                 type="button"
                 id="target"

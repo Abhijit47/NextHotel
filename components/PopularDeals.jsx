@@ -31,16 +31,22 @@ export default function PopularDeals({ rooms }) {
           // console.log("ex", room?.extra_people?.$numberDecimal);
           return (
             <div key={room?._id} className="h-96">
-              <div className="relative">
+              <div className="relative aspect-video">
+                {/* <RoomCover
+                  roomCover={currentRoom?.images?.picture_url}
+                  className="object-cover w-full h-full"
+                /> */}
                 <Image
                   src={room?.images?.picture_url}
-                  width={400}
-                  height={400}
-                  priority
+                  // width={400}
+                  // height={400}
+                  fill={true}
+                  sizes={"(min-width: 640px) 50vw, 100vw"}
+                  priority={false}
                   alt={room?.name}
-                  className="h-48 w-full object-cover"
+                  className="object-cover w-full h-full"
                 />
-                <div className="absolute top-0 flex w-full translate-y-2 items-center justify-between px-2">
+                <div className="absolute top-0 flex items-center justify-between w-full px-2 translate-y-2">
                   <div className="self-start">
                     <span className="inline-flex items-center rounded-md bg-gray-100 px-2.5 py-0.5 text-sm text-gray-800 shadow-md">
                       Scores:{" "}
@@ -54,18 +60,18 @@ export default function PopularDeals({ rooms }) {
                   </div>
                   <div className="">
                     <span className="inline-flex items-center">
-                      <MdiHeart className="h-8 w-8 cursor-pointer rounded-full bg-slate-600 bg-opacity-20 p-2 text-white transition-all delay-75 duration-500 ease-in-out hover:text-rose-500" />
+                      <MdiHeart className="w-8 h-8 p-2 text-white transition-all duration-500 ease-in-out delay-75 rounded-full cursor-pointer bg-slate-600 bg-opacity-20 hover:text-rose-500" />
                     </span>
                   </div>
                 </div>
               </div>
-              <div className="grid gap-y-4 px-4 py-2">
-                <h4 className="line-clamp-1 text-center text-lg font-medium">
+              <div className="grid px-4 py-2 gap-y-4">
+                <h4 className="text-lg font-medium text-center line-clamp-1">
                   {room?.name}
                 </h4>
                 <div className="flex items-center justify-between gap-x-2">
-                  <GisLocationPoi className="h-5 w-5 text-slate-300" />
-                  <h5 className="line-clamp-1 text-sm">
+                  <GisLocationPoi className="w-5 h-5 text-slate-300" />
+                  <h5 className="text-sm line-clamp-1">
                     {room?.address?.street}
                   </h5>
                   <Image
@@ -79,12 +85,12 @@ export default function PopularDeals({ rooms }) {
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-x-2">
-                    <MdiBedroomOutline className="h-6 w-6 text-slate-300" />
+                    <MdiBedroomOutline className="w-6 h-6 text-slate-300" />
                     <span>{room?.bedrooms} Bedroom</span>
                   </div>
-                  <MdiDot className="h-5 w-5 text-slate-300" />
+                  <MdiDot className="w-5 h-5 text-slate-300" />
                   <div className="flex items-center gap-x-2">
-                    <MdiBathroom className="h-5 w-5 text-slate-300" />
+                    <MdiBathroom className="w-5 h-5 text-slate-300" />
                     <span>{room?.bathrooms?.$numberDecimal} Bathroom</span>
                   </div>
                 </div>
@@ -121,7 +127,7 @@ export default function PopularDeals({ rooms }) {
                   </h3>
                   <Link
                     href={`/rooms/${room._id}`}
-                    className="rounded-md bg-slate-300 px-4 py-2 text-sm font-normal capitalize text-stone-700 shadow-md transition-all delay-75 duration-500 ease-in-out hover:shadow-none"
+                    className="px-4 py-2 text-sm font-normal capitalize transition-all duration-500 ease-in-out delay-75 rounded-md shadow-md bg-slate-300 text-stone-700 hover:shadow-none"
                   >
                     View More
                   </Link>
@@ -134,7 +140,7 @@ export default function PopularDeals({ rooms }) {
 
       <div className="justify-self-center">
         <Link
-          className="group relative inline-block overflow-hidden border border-indigo-600 px-8 py-3 focus:outline-none focus:ring"
+          className="relative inline-block px-8 py-3 overflow-hidden border border-indigo-600 group focus:outline-none focus:ring"
           href="/all-rooms"
         >
           <span className="absolute inset-y-0 left-0 w-[2px] bg-indigo-600 transition-all delay-75 duration-300 ease-in-out group-hover:w-full group-active:bg-indigo-500"></span>

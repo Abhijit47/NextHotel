@@ -7,22 +7,27 @@ import { calcDateTime } from "@/lib/helpers";
 import Image from "next/image";
 import Link from "next/link";
 import HostAvatar from "./HostAvatar";
+import RoomCover from "./RoomCover";
 
 export default function RoomDetails({ currentRoom }) {
   return (
-    <aside className="hidden p-8 overflow-y-auto bg-white border-l border-gray-200 w-96 lg:block">
+    <aside className="hidden h-screen p-8 overflow-y-scroll bg-white border-l border-gray-200 w-96 lg:block">
       <div className="pb-16 space-y-6">
         {/* Room photo */}
         <div>
           <div className="relative block w-full h-full overflow-hidden rounded-lg aspect-square">
-            <Image
+            <RoomCover
+              roomCover={currentRoom?.images?.picture_url}
+              className="object-cover w-full h-full"
+            />
+            {/* <Image
               src={currentRoom?.images?.picture_url}
               alt={currentRoom?.name}
               className="object-cover w-full h-full"
               width={500}
               height={500}
               priority={false}
-            />
+            /> */}
           </div>
           <div className="flex items-center justify-between mt-4 gap-x-2">
             <div>

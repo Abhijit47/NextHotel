@@ -24,7 +24,7 @@ export default function RoomPage({
     <div className="flex flex-col flex-1 overflow-hidden">
       {/* Main content */}
       <div className="flex items-stretch flex-1 overflow-hidden">
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-scroll h-dvh">
           <div className="px-4 pt-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div className="flex">
               <h1 className="flex-1 text-2xl font-bold text-gray-900">Rooms</h1>
