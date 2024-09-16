@@ -6,7 +6,8 @@
     "dev": "next dev && set-NODE_ENV=development",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prod": "next build && next start && set-NODE_ENV=production"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.5.2",
@@ -16,6 +17,7 @@
     "next": "14.2.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "sharp": "^0.33.5",
     "swiper": "^11.1.14"
   },
   "devDependencies": {

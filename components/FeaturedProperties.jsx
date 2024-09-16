@@ -6,7 +6,7 @@ export default function FeaturedProperties({ rooms }) {
     <div>
       <SectionHeading heading={"Featured"} subHeading={"Properties"} />
 
-      <FeaturedCardSlider rooms={rooms.data} />
+      <FeaturedCardSlider rooms={rooms} />
     </div>
   );
 }

@@ -1,36 +1,32 @@
-import Link from "next/link";
-import Image from "next/image";
 import {
   HeroiconsOutlineBadgeCheck,
   HeroiconsOutlineHeart,
-  HeroiconsOutlineX,
-  HeroiconsSolidPencil,
-  HeroiconsSolidPlusSm,
   HeroiconsSolidXCircle,
 } from "@/assets/icons";
-import HostAvatar from "./HostAvatar";
 import { calcDateTime } from "@/lib/helpers";
-import { currentFile } from "@/constants";
+import Image from "next/image";
+import Link from "next/link";
+import HostAvatar from "./HostAvatar";
 
 export default function RoomDetails({ currentRoom }) {
   return (
-    <aside className="hidden w-96 overflow-y-auto border-l border-gray-200 bg-white p-8 lg:block">
-      <div className="space-y-6 pb-16">
+    <aside className="hidden p-8 overflow-y-auto bg-white border-l border-gray-200 w-96 lg:block">
+      <div className="pb-16 space-y-6">
         {/* Room photo */}
         <div>
-          <div className="aspect-h-7 aspect-w-10 relative block w-full overflow-hidden rounded-lg">
+          <div className="relative block w-full h-full overflow-hidden rounded-lg aspect-square">
             <Image
               src={currentRoom?.images?.picture_url}
               alt={currentRoom?.name}
-              className="object-cover"
+              className="object-cover w-full h-full"
               width={500}
               height={500}
-              priority
+              priority={false}
             />
           </div>
-          <div className="mt-4 flex items-center justify-between gap-x-2">
+          <div className="flex items-center justify-between mt-4 gap-x-2">
             <div>
-              <h2 className="line-clamp-1 text-lg font-medium text-gray-900">
+              <h2 className="text-lg font-medium text-gray-900 line-clamp-1">
                 <span className="sr-only">Details for </span>
                 {currentRoom?.name}
               </h2>
@@ -40,9 +36,9 @@ export default function RoomDetails({ currentRoom }) {
             </div>
             <button
               type="button"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-gray-400 hover:bg-rose-100 hover:text-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-500"
+              className="flex items-center justify-center w-8 h-8 text-gray-400 bg-white rounded-full hover:bg-rose-100 hover:text-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-500"
             >
-              <HeroiconsOutlineHeart className="h-6 w-6" aria-hidden="true" />
+              <HeroiconsOutlineHeart className="w-6 h-6" aria-hidden="true" />
               <span className="sr-only">Favorite</span>
             </button>
           </div>
@@ -51,10 +47,10 @@ export default function RoomDetails({ currentRoom }) {
         {/* address */}
         <div>
           <h3 className="font-medium text-gray-900">Address</h3>
-          <dl className="mt-2 divide-y divide-gray-200 border-b border-t border-gray-200">
-            <div className="flex justify-between gap-x-2 py-3 text-sm font-medium">
+          <dl className="mt-2 border-t border-b border-gray-200 divide-y divide-gray-200">
+            <div className="flex justify-between py-3 text-sm font-medium gap-x-2">
               <dt className="text-gray-500">Street</dt>
-              <dd className="line-clamp-1 text-gray-900">
+              <dd className="text-gray-900 line-clamp-1">
                 {currentRoom?.address?.street}
               </dd>
             </div>
@@ -70,7 +66,7 @@ export default function RoomDetails({ currentRoom }) {
             </div>
             <div className="flex justify-between py-3 text-sm font-medium">
               <dt className="text-gray-500">Code</dt>
-              <dd className="flex items-center gap-x-2 text-gray-900">
+              <dd className="flex items-center text-gray-900 gap-x-2">
                 {currentRoom?.address?.country_code}
                 <Image
                   src={`https://flagcdn.com/16x12/${currentRoom?.address?.country_code.toLowerCase()}.png`}
@@ -81,13 +77,13 @@ export default function RoomDetails({ currentRoom }) {
                 />
               </dd>
             </div>
-            <div className="flex flex-col justify-between gap-y-2 text-sm font-medium">
+            <div className="flex flex-col justify-between text-sm font-medium gap-y-2">
               <dt className="text-gray-500">Location</dt>
 
-              <dd className="aspect-h-5 aspect-w-7 mx-auto w-full self-center">
+              <dd className="self-center w-full h-full aspect-square">
                 <iframe
                   title="room-location"
-                  className="object-cover"
+                  className="object-cover w-full h-full"
                   frameBorder="0"
                   scrolling="no"
                   marginHeight="0"
@@ -108,7 +104,7 @@ export default function RoomDetails({ currentRoom }) {
         {/* Room information */}
         <div>
           <h3 className="font-medium text-gray-900">Room Information</h3>
-          <dl className="mt-2 divide-y divide-gray-200 border-b border-t border-gray-200">
+          <dl className="mt-2 border-t border-b border-gray-200 divide-y divide-gray-200">
             <div className="flex justify-between py-3 text-sm font-medium">
               <dt className="text-gray-500">Room Type</dt>
               <dd className="text-gray-900">{currentRoom?.room_type}</dd>
@@ -202,7 +198,7 @@ export default function RoomDetails({ currentRoom }) {
             </div>
           </dl>
 
-          {/* <dl className="mt-2 divide-y divide-gray-200 border-b border-t border-gray-200">
+          {/* <dl className="mt-2 border-t border-b border-gray-200 divide-y divide-gray-200">
             {Object.keys(currentFile.information).map((key) => (
               <div
                 key={key}
@@ -220,7 +216,7 @@ export default function RoomDetails({ currentRoom }) {
         {/* Host information */}
         <div>
           <h3 className="font-medium text-gray-900">Host Information</h3>
-          <dl className="mt-2 divide-y divide-gray-200 border-b border-t border-gray-200">
+          <dl className="mt-2 border-t border-b border-gray-200 divide-y divide-gray-200">
             <div className="flex justify-between py-3 text-sm font-medium">
               <dt className="text-gray-500">ID</dt>
               <dd className="text-gray-900">{currentRoom?.host?.host_id}</dd>
@@ -229,9 +225,9 @@ export default function RoomDetails({ currentRoom }) {
               <dt className="text-gray-500">Name</dt>
               <dd className="text-gray-900">{currentRoom?.host?.host_name}</dd>
             </div>
-            <div className="flex justify-between gap-x-2 py-3 text-sm font-medium">
+            <div className="flex justify-between py-3 text-sm font-medium gap-x-2">
               <dt className="text-gray-500">Location</dt>
-              <dd className="line-clamp-1 text-gray-900">
+              <dd className="text-gray-900 line-clamp-1">
                 {currentRoom?.host?.host_location}
               </dd>
             </div>
@@ -255,9 +251,9 @@ export default function RoomDetails({ currentRoom }) {
               <dt className="text-gray-500">Verified</dt>
               <dd className="text-gray-900">
                 {currentRoom?.host?.host_identity_verified ? (
-                  <HeroiconsOutlineBadgeCheck className="h-5 w-5 text-green-500" />
+                  <HeroiconsOutlineBadgeCheck className="w-5 h-5 text-green-500" />
                 ) : (
-                  <HeroiconsSolidXCircle className="h-5 w-5 text-red-500" />
+                  <HeroiconsSolidXCircle className="w-5 h-5 text-red-500" />
                 )}
               </dd>
             </div>
@@ -288,12 +284,12 @@ export default function RoomDetails({ currentRoom }) {
         {/*  */}
         <div>
           <h3 className="font-medium text-gray-900">Availability</h3>
-          <dl className="mt-2 divide-y divide-gray-200 border-b border-t border-gray-200">
-            <div className="flex flex-col justify-between gap-y-2 text-sm font-medium">
+          <dl className="mt-2 border-t border-b border-gray-200 divide-y divide-gray-200">
+            <div className="flex flex-col justify-between text-sm font-medium gap-y-2">
               <dt className="text-gray-500">
                 <label
                   htmlFor="availability"
-                  className="sr-only block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-gray-700 sr-only"
                 >
                   Availability
                 </label>
@@ -302,7 +298,7 @@ export default function RoomDetails({ currentRoom }) {
                 <select
                   id="availability"
                   name="availability"
-                  className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                  className="block w-full py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   defaultValue="0"
                 >
                   {Object.entries(currentRoom?.availability)?.map(
@@ -319,15 +315,15 @@ export default function RoomDetails({ currentRoom }) {
         {/* Description */}
         {/* <div>
           <h3 className="font-medium text-gray-900">Description</h3>
-          <div className="mt-2 flex items-center justify-between">
+          <div className="flex items-center justify-between mt-2">
             <p className="text-sm italic text-gray-500">
               Add a description to this image.
             </p>
             <button
               type="button"
-              className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="flex items-center justify-center w-8 h-8 text-gray-400 bg-white rounded-full hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             >
-              <HeroiconsSolidPencil className="h-5 w-5" aria-hidden="true" />
+              <HeroiconsSolidPencil className="w-5 h-5" aria-hidden="true" />
               <span className="sr-only">Add description</span>
             </button>
           </div>
@@ -336,7 +332,7 @@ export default function RoomDetails({ currentRoom }) {
         {/*  */}
         {/* <div>
           <h3 className="font-medium text-gray-900">Shared with</h3>
-          <ul className="mt-2 divide-y divide-gray-200 border-b border-t border-gray-200">
+          <ul className="mt-2 border-t border-b border-gray-200 divide-y divide-gray-200">
             {currentFile.sharedWith.map((person) => (
               <li
                 key={person.id}
@@ -346,7 +342,7 @@ export default function RoomDetails({ currentRoom }) {
                   <img
                     src={person.imageUrl}
                     alt=""
-                    className="h-8 w-8 rounded-full"
+                    className="w-8 h-8 rounded-full"
                   />
                   <p className="ml-4 text-sm font-medium text-gray-900">
                     {person.name}
@@ -354,7 +350,7 @@ export default function RoomDetails({ currentRoom }) {
                 </div>
                 <button
                   type="button"
-                  className="ml-6 rounded-md bg-white text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="ml-6 text-sm font-medium text-indigo-600 bg-white rounded-md hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   Remove<span className="sr-only"> {person.name}</span>
                 </button>
@@ -363,11 +359,11 @@ export default function RoomDetails({ currentRoom }) {
             <li className="flex items-center justify-between py-2">
               <button
                 type="button"
-                className="group -ml-1 flex items-center rounded-md bg-white p-1 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="flex items-center p-1 -ml-1 bg-white rounded-md group focus:outline-none focus:ring-2 focus:ring-indigo-500"
               >
-                <span className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-dashed border-gray-300 text-gray-400">
+                <span className="flex items-center justify-center w-8 h-8 text-gray-400 border-2 border-gray-300 border-dashed rounded-full">
                   <HeroiconsSolidPlusSm
-                    className="h-5 w-5"
+                    className="w-5 h-5"
                     aria-hidden="true"
                   />
                 </span>
@@ -381,13 +377,13 @@ export default function RoomDetails({ currentRoom }) {
         <div className="flex">
           <button
             type="button"
-            className="flex-1 rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="flex-1 px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             Book now
           </button>
           <Link
             href="/"
-            className="ml-3 flex-1 rounded-md border border-gray-300 bg-white px-4 py-2 text-center text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="flex-1 px-4 py-2 ml-3 text-sm font-medium text-center text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             Back
           </Link>

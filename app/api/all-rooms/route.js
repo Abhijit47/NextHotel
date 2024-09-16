@@ -17,7 +17,7 @@ export async function GET(request, response) {
       .skip(no_of_docs_each_page * current_page_number)
       .limit(no_of_docs_each_page);
 
-    console.log(rooms.length);
+    // console.log(rooms.length);
 
     // const currentRoomsCount = await Room.find({})
     //   .lean()
@@ -27,7 +27,7 @@ export async function GET(request, response) {
 
     // console.log({currentRoomsCount});
 
-    const totalRooms = await Room.find({}).count();
+    const totalRooms = await Room.find({}).countDocuments();
     const noOfPages = totalRooms / no_of_docs_each_page;
 
     return sendResponse(
