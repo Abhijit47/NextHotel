@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       <body className={`relative ${inter.className} bg-gray-50`}>
         <ClerkProvider>
           <div className="absolute inset-0 bg-[url(/tailwind-grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-          <div className="relative m-auto max-w-7xl">
+          <div className="relative m-auto max-w-7xl px-2 xl:px-0">
             {/* <WebVitals /> */}
             <Navbar />
             {children}

@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import { MdiFormatQuoteClose } from "@/assets/icons";
-import StarRating from "./StarRating";
 import Divider from "./Divider";
+import StarRating from "./StarRating";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,7 +16,7 @@ import "swiper/css/grid";
 import "swiper/css/pagination";
 
 // import required modules
-import { Grid, Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Grid, Pagination } from "swiper/modules";
 
 export default function TestimonialSlider({ testimonials }) {
   const swiperRef = useRef(null);
@@ -64,6 +64,8 @@ export default function TestimonialSlider({ testimonials }) {
           // onSwiper={(swiper) => console.log(swiper)}
           // loop={true}
           grabCursor={true}
+          edgeSwipeDetection={true}
+          rewind={true}
           // lazy={true}
           // autoplay={{
           //   delay: 2500,
@@ -113,10 +115,10 @@ export default function TestimonialSlider({ testimonials }) {
           }}
           className="mySwiper"
           modules={[Grid, Autoplay, Pagination]}
-          // className="mySwpier p-4"
+          // className="p-4 mySwpier"
         >
           {testimonials.map((testimonial) => (
-            <SwiperSlide key={testimonial.id} className="p-4">
+            <SwiperSlide key={testimonial.id} className="p-4 py-12">
               <div className="grid w-full gap-y-4 rounded-md bg-white px-8 py-8 shadow-md">
                 <div className="flex w-full justify-between">
                   <Image

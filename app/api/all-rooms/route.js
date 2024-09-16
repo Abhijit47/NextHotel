@@ -17,11 +17,15 @@ export async function GET(request, response) {
       .skip(no_of_docs_each_page * current_page_number)
       .limit(no_of_docs_each_page);
 
-    const currentRoomsCount = await Room.find({})
-      .lean()
-      .skip(no_of_docs_each_page * current_page_number)
-      .limit(no_of_docs_each_page)
-      .count();
+    console.log(rooms.length);
+
+    // const currentRoomsCount = await Room.find({})
+    //   .lean()
+    //   .skip(no_of_docs_each_page * current_page_number)
+    //   .limit(no_of_docs_each_page)
+    //   .count();
+
+    // console.log({currentRoomsCount});
 
     const totalRooms = await Room.find({}).count();
     const noOfPages = totalRooms / no_of_docs_each_page;
@@ -32,7 +36,7 @@ export async function GET(request, response) {
       "Rooms retrieved successfully.",
       rooms,
       current_page_number,
-      currentRoomsCount,
+      // currentRoomsCount,
       Math.ceil(noOfPages - current_page_number),
       totalRooms,
     );

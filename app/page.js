@@ -26,20 +26,26 @@ async function getRooms() {
     }
     return res.json();
   } catch (err) {
-    throw new Error("Could not fetch rooms");
+    console.log({ err });
+    // throw new Error("Could not fetch rooms");
   }
 }
 
 export default async function Home() {
-  const { data } = await getRooms();
+  const rooms = await getRooms();
+  // const { data } = await getRooms();
+
+  if (!rooms) {
+    return <div>Could not fetch rooms</div>;
+  }
 
   return (
-    <main className="relative flex flex-col home gap-y-16">
+    <main className="home relative flex flex-col gap-y-16">
       <Hero />
       {/* <hr className="p-px text-red-500 bg-red-500" /> */}
       <PropertyTypes />
       {/* <hr /> */}
-      <PopularDeals rooms={data} />
+      <PopularDeals rooms={rooms} />
       {/* <hr /> */}
       <AboutUs />
       {/* <hr /> */}
@@ -47,7 +53,7 @@ export default async function Home() {
       {/* <hr /> */}
       <Testimonial />
       {/* <hr /> */}
-      <FeaturedProperties rooms={data} />
+      <FeaturedProperties rooms={rooms} />
       {/* <hr /> */}
       <CTA />
 

@@ -28,11 +28,11 @@ module.exports = {
       required: 'required="true"',
       selected: 'selected="true"',
     },
-    // aspectRatio: {
-    //   auto: 'auto',
-    //   square: '1 / 1',
-    //   video: '16 / 9',
-    // },
+    aspectRatio: {
+      auto: "auto",
+      square: "1 / 1",
+      video: "16 / 9",
+    },
     backdropBlur: ({ theme }) => theme("blur"),
     backdropBrightness: ({ theme }) => theme("brightness"),
     backdropContrast: ({ theme }) => theme("contrast"),
@@ -1085,7 +1085,7 @@ module.exports = {
     },
   },
   corePlugins: {
-    aspectRatio: false,
+    aspectRatio: true,
   },
   plugins: [
     require("@tailwindcss/aspect-ratio"),

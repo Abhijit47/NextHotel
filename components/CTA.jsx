@@ -1,8 +1,10 @@
 import Image from "next/image";
 
+import CTA_Image from "@/public/cta-img.png";
+
 export default function CTA() {
   return (
-    <div className="bg-white py-20">
+    <div className="pb-16">
       <div className="rounded-2xl bg-blue-300 bg-opacity-50">
         <div className="relative grid grid-cols-1 items-center lg:grid-cols-2">
           <div className="grid gap-y-4 p-16">
@@ -36,16 +38,30 @@ export default function CTA() {
             </form>
           </div>
 
-          <div className="absolute right-0 top-0 -translate-y-20 translate-x-0 justify-self-center">
+          <div className="aspect-square relative h-full w-full justify-self-center">
+            <Image
+              src={CTA_Image}
+              alt="cta-image"
+              fill={true}
+              sizes={"(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"}
+              placeholder={"blur"}
+              blurDataURL={CTA_Image.blurDataURL}
+              priority={false}
+              // width={463}
+              // height={519}
+              className="h-fit w-fit object-cover"
+            />
+          </div>
+          {/* <div className="absolute top-0 right-0 translate-x-0 -translate-y-20 justify-self-center">
             <Image
               src={"/cta-img.png"}
               width={463}
               height={519}
               alt="cta-image"
               priority={false}
-              className="size-10/12 object-cover"
+              className="object-cover size-10/12"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import CircleEffect from "@/assets/icons/CircleEffect";
-import Accordion from "./Accordion";
 import { MdiArrowRightThin } from "@/assets/icons";
-import SectionHeading from "./SectionHeading";
+import CircleEffect from "@/assets/icons/CircleEffect";
 import { faqs } from "@/constants";
+import Accordion from "./Accordion";
+import SectionHeading from "./SectionHeading";
+
+import AboutImage1 from "@/public/about-img-1.png";
+import AboutImage2 from "@/public/about-img-2.png";
 
 export default function AboutUs() {
   return (
@@ -14,16 +17,23 @@ export default function AboutUs() {
 
       {/* section 1 */}
       <div className="grid h-full grid-cols-1 gap-x-4 lg:grid-cols-2 lg:gap-x-14">
-        <div className="relative h-screen p-4 lg:p-16">
-          <Image
-            src={"/about-img-1.png"}
-            alt="about-image 1"
-            width={536}
-            height={585}
-            priority
-            className="absolute z-20 w-5/12 translate-x-4 translate-y-20 lg:w-9/12"
-          />
-          <div className="absolute right-4 top-0 z-10 h-4/6 w-9/12 -translate-x-6 translate-y-28 rounded-lg ring-1 ring-slate-500"></div>
+        <div className="relative grid p-4 lg:p-8">
+          <div className="aspect-w-square aspect-h-square relative overflow-hidden rounded-lg ring-1 ring-slate-500">
+            <Image
+              src={"/about-img-1.png"}
+              alt="about-image 1"
+              fill={true}
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+              priority={false}
+              placeholder={"blur"}
+              blurDataURL={AboutImage1.blurDataURL}
+              className={
+                "z-20 h-full w-full overflow-hidden rounded-lg p-4 lg:p-8"
+              }
+              // className="absolute z-20 w-5/12 translate-x-4 translate-y-20 lg:w-9/12"
+            />
+          </div>
+          {/* <div className="absolute top-0 z-10 w-9/12 -translate-x-6 rounded-lg right-4 h-4/6 translate-y-28 ring-1 ring-slate-500"></div> */}
           <CircleEffect className="absolute bottom-0 left-0 z-10 size-44 bg-slate-200" />
         </div>
 
@@ -51,7 +61,7 @@ export default function AboutUs() {
       </div>
 
       {/* section 2 */}
-      <div className="grid h-screen grid-cols-1 gap-x-4 lg:grid-cols-2 lg:gap-x-14">
+      <div className="grid h-full grid-cols-1 gap-x-4 lg:grid-cols-2 lg:gap-x-14">
         <div className="grid gap-y-4 p-16">
           <div className="grid items-center justify-items-start gap-y-4">
             <h3 className="text-4xl font-semibold text-stone-800">
@@ -127,7 +137,7 @@ export default function AboutUs() {
           </Link>
         </div>
 
-        <div className="relative p-16">
+        {/* <div className="relative p-16">
           <Image
             src={"/about-img-2.png"}
             alt="about-image 1"
@@ -136,7 +146,26 @@ export default function AboutUs() {
             priority
             className="absolute z-20 w-9/12 translate-x-4 translate-y-20"
           />
-          <div className="absolute right-4 top-0 z-10 h-4/6 w-9/12 -translate-x-6 translate-y-28 rounded-lg ring-1 ring-slate-500"></div>
+          <div className="absolute top-0 z-10 w-9/12 -translate-x-6 rounded-lg right-4 h-4/6 translate-y-28 ring-1 ring-slate-500"></div>
+          <CircleEffect className="absolute bottom-0 left-0 z-10 size-44 bg-slate-200" />
+        </div> */}
+        <div className="relative grid p-4 lg:p-8">
+          <div className="aspect-w-square aspect-h-square relative overflow-hidden rounded-lg ring-1 ring-slate-500">
+            <Image
+              src={"/about-img-2.png"}
+              alt="about-image 2"
+              fill={true}
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+              priority={false}
+              placeholder={"blur"}
+              blurDataURL={AboutImage2.blurDataURL}
+              className={
+                "z-20 h-full w-full overflow-hidden rounded-lg p-4 lg:p-8"
+              }
+              // className="absolute z-20 w-5/12 translate-x-4 translate-y-20 lg:w-9/12"
+            />
+          </div>
+          {/* <div className="absolute top-0 z-10 w-9/12 -translate-x-6 rounded-lg right-4 h-4/6 translate-y-28 ring-1 ring-slate-500"></div> */}
           <CircleEffect className="absolute bottom-0 left-0 z-10 size-44 bg-slate-200" />
         </div>
       </div>

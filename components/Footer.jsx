@@ -1,5 +1,6 @@
 import Logo from "@/assets/icons/NavLogo";
 import { HeroiconsChevronDownSolid } from "@/assets/icons/index";
+import Link from "next/link";
 
 const navigation = {
   solutions: [
@@ -94,18 +95,18 @@ const navigation = {
 export default function Footer() {
   return (
     <footer
-      className="bg-white bg-footer-texture bg-contain bg-center bg-no-repeat"
+      className="bg-center bg-no-repeat bg-contain bg-footer-texture"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8 lg:py-16">
         <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
           <div className="grid grid-cols-2 gap-8 xl:col-span-4">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
+                <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
                   Solutions
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
@@ -122,7 +123,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
+                <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
                   Support
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
@@ -141,7 +142,7 @@ export default function Footer() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
+                <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
                   Company
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
@@ -158,7 +159,7 @@ export default function Footer() {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
+                <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
                   Legal
                 </h3>
                 <ul role="list" className="mt-4 space-y-4">
@@ -177,7 +178,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="mt-12 xl:mt-0">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
+            <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
               Language &amp; Currency
             </h3>
             <form className="mt-4 sm:max-w-xs">
@@ -189,7 +190,7 @@ export default function Footer() {
                   <select
                     id="language"
                     name="language"
-                    className="block w-full appearance-none rounded-md border border-gray-300 bg-white bg-none py-2 pl-3 pr-10 text-base text-gray-900 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    className="block w-full py-2 pl-3 pr-10 text-base text-gray-900 bg-white border border-gray-300 rounded-md appearance-none bg-none focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     defaultValue="English"
                   >
                     <option>English</option>
@@ -198,15 +199,15 @@ export default function Footer() {
                     <option>Japanese</option>
                     <option>Spanish</option>
                   </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+                  <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                     <HeroiconsChevronDownSolid
-                      className="h-4 w-4 text-gray-400"
+                      className="w-4 h-4 text-gray-400"
                       aria-hidden="true"
                     />
                   </div>
                 </div>
               </fieldset>
-              <fieldset className="mt-4 w-full">
+              <fieldset className="w-full mt-4">
                 <label htmlFor="currency" className="sr-only">
                   Currency
                 </label>
@@ -214,7 +215,7 @@ export default function Footer() {
                   <select
                     id="currency"
                     name="currency"
-                    className="block w-full appearance-none rounded-md border border-gray-300 bg-white bg-none py-2 pl-3 pr-10 text-base text-gray-900 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                    className="block w-full py-2 pl-3 pr-10 text-base text-gray-900 bg-white border border-gray-300 rounded-md appearance-none bg-none focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                     defaultValue="AUD"
                   >
                     <option>ARS</option>
@@ -226,9 +227,9 @@ export default function Footer() {
                     <option>JPY</option>
                     <option>USD</option>
                   </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+                  <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                     <HeroiconsChevronDownSolid
-                      className="h-4 w-4 text-gray-400"
+                      className="w-4 h-4 text-gray-400"
                       aria-hidden="true"
                     />
                   </div>
@@ -237,10 +238,10 @@ export default function Footer() {
             </form>
           </div>
         </div>
-        <div className="border-t border-gray-200 pt-8 lg:flex lg:items-center lg:justify-between xl:mt-0">
+        <div className="pt-8 border-t border-gray-200 lg:flex lg:items-center lg:justify-between xl:mt-0">
           <Logo />
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
+            <h3 className="text-sm font-semibold tracking-wider text-gray-400 uppercase">
               Subscribe to our newsletter
             </h3>
             <p className="mt-2 text-base text-gray-500">
@@ -258,30 +259,30 @@ export default function Footer() {
               id="email-address"
               autoComplete="email"
               required
-              className="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white px-4 py-2 text-base text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-indigo-500 sm:max-w-xs"
+              className="w-full min-w-0 px-4 py-2 text-base text-gray-900 placeholder-gray-500 bg-white border border-gray-300 rounded-md appearance-none focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-indigo-500 sm:max-w-xs"
               placeholder="Enter your email"
             />
             <div className="mt-3 rounded-md sm:ml-3 sm:mt-0 sm:flex-shrink-0">
               <button
                 type="submit"
-                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Subscribe
               </button>
             </div>
           </form>
         </div>
-        <div className="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">
+        <div className="pt-8 mt-8 border-t border-gray-200 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
             {navigation.social.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className="text-gray-400 hover:text-gray-500"
               >
                 <span className="sr-only">{item.name}</span>
-                <item.icon className="h-6 w-6" aria-hidden="true" />
-              </a>
+                <item.icon className="w-6 h-6" aria-hidden="true" />
+              </Link>
             ))}
           </div>
           <p className="mt-8 text-base text-gray-400 md:order-1 md:mt-0">

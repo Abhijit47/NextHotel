@@ -4,6 +4,8 @@ const isDev = process.env.NODE_ENV === "development" ? true : false;
 
 const API_URL = isDev ? process.env.LOCAL_API_URL : process.env.SERVER_API_URL;
 
+console.log({ API_URL });
+
 async function getAllRooms() {
   // try {
   const res = await fetch(`${API_URL}/api/all-rooms`, {
@@ -13,6 +15,8 @@ async function getAllRooms() {
     },
     cache: "no-cache",
   });
+
+  console.log({ res });
 
   if (!res.ok) {
     // return "Failed to fetch rooms";
